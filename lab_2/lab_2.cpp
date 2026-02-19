@@ -68,6 +68,20 @@ void dinam_ykaz() {
 	cout << endl;
 
 }
+//функция сортировки вставками
+void sort_mass(int mass,int size) {
+	for (int i = 1; i < size; i++) {
+		int key = mass[i];
+		int j = i - 1;
+		while (j >= 0 && mass[j] > key) {
+			mass[j + 1] = mass[j];
+			j--
+		}
+		mass[j + 1] = key;
+	}
+
+}
+
 int main()
 {
 	setlocale(LC_ALL, "Russian");
@@ -87,6 +101,7 @@ int main()
 	stat_ykaz();
 	dinam_ind();
 	dinam_ykaz();
+
 
 	return 0;
 
