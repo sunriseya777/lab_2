@@ -2,12 +2,120 @@
 //
 
 #include <iostream>
+#include <clocale>
+using namespace std;
+// Функция для изменения двух значений:
+// первый аргумент - по ссылке
+// второй аргумент - по указателю
 
+void fun(int& arg1, int* arg2){
+	arg1 = arg1 * 2;
+	*arg2 = (*arg2) + 1;
+
+}
+void stat_ind() {
+	cout << "Статический массив, индексная адресация. ";
+	const int SIZE = 10;
+	int mass[SIZE];
+	for (int i = 0; i < SIZE; i++) {
+		mass[i] = i * i;
+	}
+	cout << "Элементы массива: ";
+	for (int i = 0; i < SIZE; i++) {
+		cout << mass[i] << " ";
+	}
+	cout << endl;
+}
+void stat_ykaz() {
+	cout << "Статический массив, адресация с помощью указателя. ";
+	const int SIZE = 10;
+	int mass[SIZE];
+	int* ykaz = mass;
+	for (int i = 0; i < SIZE; i++) {
+		*(ykaz + i) = i * i;
+	}
+	cout << "Элементы массива: ";
+	for (int i = 0; i < SIZE; i++) {
+		cout << *(ykaz + i) << " ";
+	}
+	cout << endl;
+}
+void dinam_ind() {
+	cout << "Динамический массив, индексная адресация. ";
+	const int SIZE = 10;
+	int* mass = new int[SIZE];
+	for (int i = 0; i < SIZE; i++) {
+		mass[i] = i * i;
+	}
+	cout << "Элементы массива: ";
+	for (int i= 0; i < SIZE; i++) {
+		cout << mass[i] << " ";
+	}
+	cout << endl;
+}
+void dinam_ykaz() {
+	cout << "Динамический массив, адресация с помощью указателя. ";
+	const int SIZE = 10;
+	int* mass = new int[SIZE];
+	int* ykaz = mass;
+	for (int i = 0; i < SIZE; i++) {
+		*(ykaz + i) = i * i;
+	}
+	cout << "Элементы массива: ";
+	for (int i = 0; i < SIZE; i++) {
+		cout << *(ykaz + i) << " ";
+	}
+	cout << endl;
+
+}
 int main()
 {
-    std::cout << "Hello World!\n";
-}
+	setlocale(LC_ALL, "Russian");
 
+	cout << "Упражднение 2" << endl;
+	int a = 5;
+	int b = 10;
+	cout << "До изменений:" << endl;
+	cout << "a = " << a << ",b = " << b << endl;
+	fun(a,&b);
+	cout << "После изменений:" << endl;
+	cout << "a = " << a << ",b = " << b << endl;
+	cout << endl;
+
+	cout << "Упражднение 3_1" << endl;
+	stat_ind();
+	stat_ykaz();
+	dinam_ind();
+	dinam_ykaz();
+
+	return 0;
+
+}
+//void modifyValues(int& refArg, int* ptrArg) {
+//    // Изменяем значение по ссылке (автоматическое разыменование)
+//    refArg = refArg * 2;
+//
+//    // Изменяем значение по указателю (требуется явное разыменование)
+//    *ptrArg = *ptrArg + 10;
+//
+//    cout << "Внутри функции: refArg = " << refArg
+//        << ", *ptrArg = " << *ptrArg << endl;
+//}
+//
+//int main()
+//{
+//    int a = 5;
+//    int b = 20;
+//
+//    cout << "До вызова функции: a = " << a << ", b = " << b << endl;
+//
+//    // Вызываем функцию: a передаем по ссылке, b - по указателю
+//    modifyValues(a, &b);
+//
+//    cout << "После вызова функции: a = " << a << ", b = " << b << endl;
+//
+//    return 0;
+//}
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
 // Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
 
