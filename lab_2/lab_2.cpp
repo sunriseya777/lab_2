@@ -68,19 +68,52 @@ void dinam_ykaz() {
 	cout << endl;
 
 }
-//функция сортировки вставками
-void sort_mass(int mass,int size) {
-	for (int i = 1; i < size; i++) {
-		int key = mass[i];
-		int j = i - 1;
-		while (j >= 0 && mass[j] > key) {
-			mass[j + 1] = mass[j];
-			j--
+int* merge_mass(int arr1[], int size1, int arr2[], int size2) {
+	int size3 = size1 + size2;
+	int* result = new int[size3];
+
+	int i = 0;          // индекс для первого массива (индексная адресация)
+	int* ptr2 = arr2;   // указатель на начало второго массива
+	int j = 0;          // смещение для второго массива
+	int k = 0;          // индекс для конечного массива
+
+	while (i < size1 && j < size2) {
+		// Сравниваем элементы:
+		if (arr1[i] < *(ptr2 + j)) {
+			result[k] = arr1[i];
+			i++;
 		}
-		mass[j + 1] = key;
+		else {
+			result[k] = *(ptr2 + j);
+			j++;
+		}
+		k++;
+	}
+	//копируем из 1 массива
+	while (i < size1) {
+		result[k] = arr1[i];
+		i++;
+		k++;
 	}
 
+	//копируем из 2 массива
+	while (j < size2) {
+		result[k] = *(ptr2 + j);
+		j++;
+		k++;
+	}
+
+	return result;
 }
+
+void printArray(int arr[], int size, const char* name) {
+	cout << name << ": ";
+	for (int i = 0; i < size; i++) {
+		cout << arr[i] << " ";
+	}
+	cout << endl;
+}
+
 
 int main()
 {
@@ -101,6 +134,30 @@ int main()
 	stat_ykaz();
 	dinam_ind();
 	dinam_ykaz();
+	const int size1 = 4;
+	const int size2 = 5;
+ 
+	int* arr1 = new int[size1] {1, 3, 5, 7};       
+	int* arr2 = new int[size2] {2, 4, 6, 8, 10};   
+
+	cout << "Исходные упорядоченные массивы:" << endl;
+	printArray(arr1, size1, "массив 1");
+	printArray(arr2, size2, "массив 2");
+
+	int* arr3 = merge_mass(arr1, size1, arr2, size2);
+	int size3 = size1 + size2;
+
+	cout << "Результат после слияния:" << endl;
+	printArray(arr3, size3, "массив 3 ");
+
+	delete[] arr1;
+	delete[] arr2;
+	delete[] arr3;
+
+	//все без 4 упражнения
+
+
+
 
 
 	return 0;
