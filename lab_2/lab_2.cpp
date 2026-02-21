@@ -174,6 +174,18 @@ int main()
 			tail = newNode;
 		}
 	}
+	cout << "Прямой порядок: ";
+	for (Node* cur = head; cur != nullptr; cur = cur->next) {
+		cout << cur->data << " ";
+
+	}
+	cout << endl;
+	cout << "Обратный порядок";
+	for (Node* cur = tail; cur != nullptr; cur = cur->pred) {
+		cout << cur->data << " ";
+
+	}
+	cout << endl;
 
 	
 
