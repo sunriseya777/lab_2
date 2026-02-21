@@ -113,7 +113,12 @@ void printArray(int arr[], int size, const char* name) {
 	}
 	cout << endl;
 }
-
+struct Node {
+	int data;
+	Node* pred;
+	Node* next;
+	Node(int value) : data(value), pred(nullptr), next(nullptr); {}
+};
 
 int main()
 {
@@ -154,7 +159,9 @@ int main()
 	delete[] arr2;
 	delete[] arr3;
 
-	//все без 4 упражнения
+	//4 упражнение
+	
+	
 
 
 
