@@ -186,6 +186,13 @@ int main()
 
 	}
 	cout << endl;
+	//освобождение памяти
+	Node* cur = head;
+	while (cur != nullptr) {
+		Node* next = cur->next;
+		delete cur;
+		cur = next;
+	}
 
 	
 
