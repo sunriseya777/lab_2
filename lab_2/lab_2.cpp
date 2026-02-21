@@ -160,7 +160,21 @@ int main()
 	delete[] arr3;
 
 	//4 упражнение
-	
+	Node* head = nullptr;
+	Node* tail = nullptr;
+	//создадим 10 узлов и свяжем их
+	for (int i = 1; i <= 10; i++) {
+		Node* newNode = new Node(i);
+		if (head == nullptr) {
+			head = tail = newNode;
+		}
+		else {
+			tail->next = newNode;
+			newNode->pred = tail;
+			tail = newNode;
+		}
+	}
+
 	
 
 
