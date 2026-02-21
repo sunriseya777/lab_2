@@ -1,7 +1,4 @@
-﻿// lab_2.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
-
-#include <iostream>
+﻿#include <iostream>
 #include <clocale>
 using namespace std;
 // Функция для изменения двух значений:
@@ -113,11 +110,12 @@ void printArray(int arr[], int size, const char* name) {
 	}
 	cout << endl;
 }
-struct Node {
+struct Node 
+{
 	int data;
 	Node* pred;
 	Node* next;
-	Node(int value) : data(value), pred(nullptr), next(nullptr); {}
+	Node(int val) : data(val), pred(nullptr), next(nullptr) {}
 };
 
 int main()
@@ -125,6 +123,7 @@ int main()
 	setlocale(LC_ALL, "Russian");
 
 	cout << "Упражднение 2" << endl;
+	cout << endl;
 	int a = 5;
 	int b = 10;
 	cout << "До изменений:" << endl;
@@ -133,12 +132,18 @@ int main()
 	cout << "После изменений:" << endl;
 	cout << "a = " << a << ",b = " << b << endl;
 	cout << endl;
-
-	cout << "Упражднение 3_1" << endl;
+	cout << "------------------------------" << endl;
+	cout << endl;
+	cout << "Упражднение 3.1" << endl;
+	cout << endl;
 	stat_ind();
 	stat_ykaz();
 	dinam_ind();
 	dinam_ykaz();
+	cout << endl;
+	cout << "------------------------------" << endl;
+	cout << "Упражнение 3.2" << endl;
+	cout << endl;
 	const int size1 = 4;
 	const int size2 = 5;
  
@@ -158,8 +163,10 @@ int main()
 	delete[] arr1;
 	delete[] arr2;
 	delete[] arr3;
-
+	cout << "------------------------------" << endl;
 	//4 упражнение
+	cout << "упражнение 4" << endl;
+	cout << endl;
 	Node* head = nullptr;
 	Node* tail = nullptr;
 	//создадим 10 узлов и свяжем их
@@ -180,7 +187,7 @@ int main()
 
 	}
 	cout << endl;
-	cout << "Обратный порядок";
+	cout << "Обратный порядок: ";
 	for (Node* cur = tail; cur != nullptr; cur = cur->pred) {
 		cout << cur->data << " ";
 
@@ -193,24 +200,9 @@ int main()
 		delete cur;
 		cur = next;
 	}
-
-	
-
-
-
-
+ 
 
 	return 0;
 
 }
  
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
-
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
